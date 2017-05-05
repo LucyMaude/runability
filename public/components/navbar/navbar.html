@@ -1,0 +1,7 @@
+<div class="row navbar">
+    <a class="btn" ng-hide="userService.isAuthenticated()" href="#/login">Login</a>
+    <a class="btn" ng-hide="userService.isAuthenticated()" href="#/signup" >Signup</a>
+    <a class="btn" ng-show="userService.isAuthenticated()" href="#/logout">Logout</a>
+    <a class="btn" href="#/home">Home</a>
+    <a class="btn" ng-show="userService.isAuthenticated()" href="#/plan" >Plan</a>
+</div>
