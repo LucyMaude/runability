@@ -22,22 +22,20 @@ app.controller("planCtrl", ["$scope", "mainService", "sampleService", function (
     }
 
     $scope.adjustSample = function (input1, input2) {
-        console.log(input1);
-        console.log(input2);
-        for (var key in input1) {
-            if (input2.repetitions) {
+        for (var key in input2){
+            if (input2.repetitions){
                 input1.repetitions = input2.repetitions;
-                input1.joggingTime = (input1.totalTime / input1.repetitions);
-                console.log(input1.joggingTime)
             }
-            if (input2.joggingTime){
+            if (input2.joggingTime) {
                 input1.joggingTime = input2.joggingTime;
-                input1.repetitions = Math.round(input1.totalTime / input1.joggingTime);
-            } if (input2.totalTime) {
-                input1.totalTime = input2.totalTime;
-                input1.repetitions = Math.round(input1.totalTime / input1.joggingTime);
+            }
+            if (input2.walkingTime) {
+                input1.walkingTime = input2.walkingTime;
             }
         };
+        
+        input1.totalTime = (input1.joggingTime * input1.repetitions);
+      
     };
 
     $scope.example;
@@ -49,6 +47,5 @@ app.controller("planCtrl", ["$scope", "mainService", "sampleService", function (
             title: input.title,
             weeks: sampleService.sampleWeek
         };
-        //        console.log($scope.example);
     }
 }]);

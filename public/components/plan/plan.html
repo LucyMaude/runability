@@ -39,13 +39,13 @@
                                 <div>{{day.restDay}}</div>
                                 <div ng-hide="day.restDay">Walk: {{day.walkingTime}} mins</div>
                                 <div ng-hide="day.restDay">Repeat: {{day.repetitions}} times</div>
-                                <div ng-hide="day.restDay">Total Time:{{day.joggingTime * day.repetitions || ""}} mins </div>
+                                <div ng-hide="day.restDay">Jogging Time:{{day.joggingTime * day.repetitions || ""}} mins </div>
                             </div>
                             <div ng-show="adjusting">
-                                <input class="form-control" placeholder="{{day.joggingTime}}" ng-model="change.joggingTime">
-                                <input class="form-control" placeholder="{{day.walkingTime}}" ng-model="change.restDay">
-                                <input class="form-control" placeholder="{{day.walkingTime}}" ng-model="change.repetitions">
-                                <input class="form-control" placeholder="{{day.repetitions}}" ng-model="change.totalTime">
+                                <input class="form-control" placeholder="jog {{day.joggingTime}}" ng-model="change.joggingTime">
+                                <input class="form-control" placeholder="walk {{day.walkingTime}}" ng-model="change.restDay">
+                                <input class="form-control" placeholder="{{day.repetitions}} times" ng-model="change.repetitions">
+
                             </div>
                             <button ng-hide="day.restDay" class="btn" ng-click="adjusting = !adjusting">Edit</button>
                             <button ng-hide="day.restDay" type="submit" class="btn" ng-click="adjustSample(day, change); adjusting = !adjusting">Update</button>
@@ -59,7 +59,7 @@
 
             <div class="row">
                 <form class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-group">
-<h2>Create a new training schedule!</h2>
+                    <h2>Create a new training schedule!</h2>
                     <input class="form-control" type="text" placeholder="Name of Race" ng-model="race.title" required> Length of Race: <select class="form-control" ng-model="race.length" required>
                     <option value="5k">5k</option>
                     <option value="10k">10k</option>
